@@ -13,7 +13,7 @@ const saveAccountData = (data) => {
 }
 
 //creating account
-const createUser = async (req, res) => {
+const createUser = (req, res) => {
     try {
       var newUser = getAccountData() 
       const newAccount = Math.floor(100000 + Math.random() * 900000)
@@ -28,13 +28,13 @@ const createUser = async (req, res) => {
   };
 
 //reading
-  const readUsers = async (req, res) => {
+  const readUsers = (req, res) => {
     const accounts = getAccountData()
     res.send(accounts)
-  }
+  };
 
 //updating
-const updateUser = async (req, res) => {
+const updateUser = (req, res) => {
     try {
         var updatedUser = getAccountData() 
         fs.readFile(User, '', (err, data) => {
@@ -48,9 +48,9 @@ const updateUser = async (req, res) => {
         console.error('Error updating user:', error);
         res.send({ error: 'Error updating user' });
       }   
-} 
+} ;
 //deleting
-const deleteUser = async (req, res) => {
+const deleteUser = (req, res) => {
     try{fs.readFile(User, '', (err, data) => {
         var deletedUser = getAccountData()
         const accountId = req.params['id'];
@@ -62,11 +62,11 @@ const deleteUser = async (req, res) => {
         res.send({ error: 'Error deleting user' });
       }
     
-}
+};
 
 module.exports = {
     createUser,
-    getUser,
+    readUsers,
     updateUser,
     deleteUser,
   };

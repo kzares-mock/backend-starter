@@ -6,7 +6,7 @@ router.use(accountRoutes)
 const userController = require('../controllers/user.controllers');
 
 router.post('/', userController.createUser);
-router.get('/', userController.getUser);
+router.get('/', userController.readUsers);
 router.put('/:id', userController.updateUser);
 router.delete('/:id', userController.deleteUser);
 
